@@ -1,0 +1,112 @@
+<div class="modal-bg" [class.show]="showModal">
+  <div class="modal" *ngIf="showModal">
+    <h4>{{ editId ? 'Modifier' : 'Ajouter' }} {{ capitalize(currentView) }}</h4>
+
+    <!-- Employees Form -->
+    <ng-container *ngIf="currentView === 'employes'">
+      <label>Email</label>
+      <input [(ngModel)]="formData['email']" placeholder="Email">
+      
+      <label>Adresse</label>
+      <input [(ngModel)]="formData['adresse']" placeholder="Adresse">
+      
+      <label>Téléphone</label>
+      <input [(ngModel)]="formData['telephone']" placeholder="Téléphone">
+      
+      <label>Nom</label>
+      <input [(ngModel)]="formData['nom']" placeholder="Nom">
+      
+      <label>Prénom</label>
+      <input [(ngModel)]="formData['prenom']" placeholder="Prénom">
+      
+      <label>CIN</label>
+      <input [(ngModel)]="formData['cin']" placeholder="CIN">
+      
+      <label>Date de naissance</label>
+      <input type="date" [(ngModel)]="formData['dateNaissance']">
+      
+      <label>Poste</label>
+      <input [(ngModel)]="formData['poste']" placeholder="Poste">
+      
+      <label>Salaire</label>
+      <input [(ngModel)]="formData['salaire']" placeholder="0 TND">
+    </ng-container>
+
+    <!-- Contracts Form -->
+    <ng-container *ngIf="currentView === 'contrats'">
+      <label>Type (CDD / CDI)</label>
+      <input [(ngModel)]="formData['type']" placeholder="CDI">
+      
+      <label>Employé</label>
+      <input [(ngModel)]="formData['employe']" placeholder="Employé">
+      
+      <label>Date Début</label>
+      <input type="date" [(ngModel)]="formData['dateDebut']">
+      
+      <label>Date Fin</label>
+      <input type="date" [(ngModel)]="formData['dateFin']">
+    </ng-container>
+
+    <!-- Presences Form -->
+    <ng-container *ngIf="currentView === 'presences'">
+      <label>Employé</label>
+      <input [(ngModel)]="formData['employe']" placeholder="Employé">
+      
+      <label>Date</label>
+      <input type="date" [(ngModel)]="formData['date']">
+      
+      <label>Status</label>
+      <select [(ngModel)]="formData['status']">
+        <option value="Présent">Présent</option>
+        <option value="Absent">Absent</option>
+      </select>
+    </ng-container>
+
+    <!-- Leaves Form -->
+    <ng-container *ngIf="currentView === 'conges'">
+      <label>Employé</label>
+      <input [(ngModel)]="formData['employe']" placeholder="Employé">
+      
+      <label>Type</label>
+      <select [(ngModel)]="formData['type']">
+        <option value="Annuel">Annuel</option>
+        <option value="Maladie">Maladie</option>
+      </select>
+      
+      <label>Début</label>
+      <input type="date" [(ngModel)]="formData['debut']">
+      
+      <label>Fin</label>
+      <input type="date" [(ngModel)]="formData['fin']">
+    </ng-container>
+
+    <!-- Payroll Form -->
+    <ng-container *ngIf="currentView === 'paie'">
+      <label>Employé</label>
+      <input [(ngModel)]="formData['employe']" placeholder="Employé">
+      
+      <label>Mois</label>
+      <input [(ngModel)]="formData['mois']" placeholder="Mois">
+      
+      <label>Montant</label>
+      <input [(ngModel)]="formData['montant']" placeholder="Montant">
+    </ng-container>
+
+    <!-- Training Form -->
+    <ng-container *ngIf="currentView === 'formations'">
+      <label>Titre</label>
+      <input [(ngModel)]="formData['titre']" placeholder="Titre">
+      
+      <label>Employé</label>
+      <input [(ngModel)]="formData['employe']" placeholder="Employé">
+      
+      <label>Date</label>
+      <input type="date" [(ngModel)]="formData['date']">
+    </ng-container>
+
+    <div class="btns">
+      <button class="btn-cancel" (click)="onCloseModal()">Annuler</button>
+      <button class="btn-save" (click)="onSave()">Enregistrer</button>
+    </div>
+  </div>
+</div>

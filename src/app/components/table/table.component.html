@@ -1,0 +1,34 @@
+<div class="card">
+  <h3>{{ capitalize(currentView) }}</h3>
+  <button class="btn-add" (click)="openForm.emit(null)">
+    <i class="fa-solid fa-plus"></i> Ajouter
+  </button>
+  <table>
+    <thead>
+      <tr>
+        <th *ngFor="let col of columns">{{ capitalize(col) }}</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngIf="items.length === 0">
+        <td [attr.colspan]="columns.length + 1">Aucun enregistrement</td>
+      </tr>
+      <tr *ngFor="let item of items">
+        <td *ngFor="let col of columns">{{ escapeHtml(item[col]) }}</td>
+        <td class="actions">
+          <button 
+            style="background: #60a5fa" 
+            (click)="onEdit(item.id)">
+            <i class="fa-solid fa-pen-to-square"></i> Modifier
+          </button>
+          <button 
+            style="background: #f87171" 
+            (click)="onDelete(capitalize(currentView), item.id)">
+            <i class="fa-solid fa-trash"></i> Supprimer
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,59 @@
+<header class="header">
+  <div class="brand">
+    <img src="https://cdn-icons-png.flaticon.com/512/2966/2966481.png" alt="logo">
+    CliniqueCare – Gestion RH Médicale
+  </div>
+</header>
+
+<div class="app">
+  <nav>
+    <button 
+      [class.active]="currentView === 'employes'" 
+      (click)="showView('employes')">
+      <i class="fa-solid fa-user-doctor"></i> Employés
+    </button>
+    <button 
+      [class.active]="currentView === 'contrats'" 
+      (click)="showView('contrats')">
+      <i class="fa-solid fa-file-contract"></i> Contrats
+    </button>
+    <button 
+      [class.active]="currentView === 'presences'" 
+      (click)="showView('presences')">
+      <i class="fa-solid fa-clipboard-check"></i> Présences
+    </button>
+    <button 
+      [class.active]="currentView === 'conges'" 
+      (click)="showView('conges')">
+      <i class="fa-solid fa-umbrella-beach"></i> Congés
+    </button>
+    <button 
+      [class.active]="currentView === 'paie'" 
+      (click)="showView('paie')">
+      <i class="fa-solid fa-sack-dollar"></i> Paie
+    </button>
+    <button 
+      [class.active]="currentView === 'formations'" 
+      (click)="showView('formations')">
+      <i class="fa-solid fa-graduation-cap"></i> Formations
+    </button>
+  </nav>
+
+  <main id="content">
+    <app-table 
+      [currentView]="currentView" 
+      [items]="items" 
+      [columns]="columns[currentView]"
+      (openForm)="openForm($event)">
+    </app-table>
+  </main>
+</div>
+
+<!-- Modal -->
+<app-modal 
+  [showModal]="showModal" 
+  [currentView]="currentView" 
+  [editId]="editId"
+  (closeModal)="closeModal()"
+  (itemSaved)="closeModal(); updateItems()">
+</app-modal>

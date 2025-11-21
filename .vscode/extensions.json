@@ -1,0 +1,8 @@
+{
+  "recommendations": [
+    "Angular.ng-template",
+    "ms-vscode.vscode-typescript-next",
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint"
+  ]
+}

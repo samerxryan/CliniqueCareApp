@@ -1,0 +1,67 @@
+.card {
+  background: #fff;
+  padding: 1.2rem 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  margin-bottom: 1.5rem;
+}
+
+h3 {
+  margin-top: 0;
+  font-size: 1.2rem;
+  color: #0d9488;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 0.8rem;
+}
+
+th,
+td {
+  border: 1px solid #e2e8f0;
+  padding: 0.6rem 0.8rem;
+  text-align: left;
+  font-size: 0.9rem;
+}
+
+th {
+  background: #e0f2f1;
+  color: #0f766e;
+}
+
+tr:hover {
+  background: #f0fdfa;
+}
+
+.actions button {
+  margin-right: 4px;
+  padding: 5px 9px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  border-radius: 6px;
+  border: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  color: white;
+}
+
+.btn-add {
+  margin: 0.7rem 0;
+  padding: 0.6rem 1.2rem;
+  background: #0d9488;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.btn-add:hover {
+  background: #0f766e;
+}
